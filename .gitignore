@@ -24,3 +24,5 @@ project/project
 project/plugins/target
 target
 .target
+
+conf/application.conf
