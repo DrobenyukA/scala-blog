@@ -18,16 +18,9 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
    * will be called when the application receives a `GET` request with
    * a path of `/`.
    */
-  def index() = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.index())
+  def index() = Action { implicit request: RequestHeader =>
+    val posts = List("Post 1", "Post 2", "Post 3", "Post 4", "Post 5")
+    Ok(views.html.index(posts))
   }
-  
-  def explore() = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.explore())
-  }
-  
-  def tutorial() = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.tutorial())
-  }
-  
+
 }

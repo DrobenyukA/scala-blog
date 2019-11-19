@@ -1,0 +1,11 @@
+@(label: String, current: String, linkTo: String)
+    @if(current == linkTo) {
+        <a class="nav-link active" href="@linkTo">
+            @label <span class="sr-only">(current)</span>
+        </a>
+    } else {
+        <a class="nav-link" href="@linkTo">
+            @label
+        </a>
+    }
+

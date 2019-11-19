@@ -5,9 +5,21 @@
 
 # An example controller showing a sample home page
 GET     /                                   controllers.HomeController.index
-GET     /explore                            controllers.HomeController.explore
-GET     /tutorial                           controllers.HomeController.tutorial
+
 GET     /blog                               controllers.BlogController.index
+GET     /blog/post/create                   controllers.BlogController.renderPostFrom(id ?= null)
+GET     /blog/post/:id/edit                 controllers.BlogController.renderPostFrom(id)
+GET     /blog/post/:id                      controllers.BlogController.renderPost(id)
+POST    /blog/post                          controllers.BlogController.createPost
+PUT     /blog/post/:id                      controllers.BlogController.updatePost(id)
+DELETE  /blog/post/:id                      controllers.BlogController.deletePost(id)
+
+# AUTH
+GET      /login                             controllers.AuthController.renderLoginForm
+POST     /login                             controllers.AuthController.login
+POST     /logout                            controllers.AuthController.logout
+GET      /register                          controllers.AuthController.renderRegistrationForm
+POST     /register                          controllers.AuthController.register
 
 
 # Map static resources from the /public folder to the /assets URL path

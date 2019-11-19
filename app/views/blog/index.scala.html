@@ -1,19 +1,16 @@
 @(posts: Seq[String])(implicit request: RequestHeader)
 
-@base("", request) {
+@base("-> Posts", request) {
     @defining(play.core.PlayVersion.current) { version =>
 
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <h1>Welcome to Scala Blog</h1>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid architecto ea facilis fugiat laborum nesciunt sit unde voluptatem? Ab accusantium eaque eligendi ipsa odio placeat repellat temporibus ullam. Cum distinctio ea, esse nostrum possimus voluptatibus!
-                    </p>
+                    <h1 class="text-center">Latest posts</h1>
                 </div>
             </div>
             @*
-                TODO: made this post reversed for paired numbers
+            TODO: made this post reversed for paired numbers
             *@
             @for(post <- posts) {
                 <hr class="featurette-divider">
