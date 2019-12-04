@@ -3,16 +3,15 @@
 # https://www.playframework.com/documentation/latest/ScalaRouting
 # ~~~~
 
-# An example controller showing a sample home page
-GET     /                                   controllers.HomeController.index
+GET     /                                   controllers.HomeController.renderHomePage
 
-GET     /blog                               controllers.BlogController.index
-GET     /blog/post/create                   controllers.BlogController.renderPostFrom(id ?= null)
-GET     /blog/post/:id/edit                 controllers.BlogController.renderPostFrom(id)
-GET     /blog/post/:id                      controllers.BlogController.renderPost(id)
-POST    /blog/post                          controllers.BlogController.createPost
-PUT     /blog/post/:id                      controllers.BlogController.updatePost(id)
-DELETE  /blog/post/:id                      controllers.BlogController.deletePost(id)
+GET     /blog                               controllers.PostController.renderBlog
+GET     /blog/post/create                   controllers.PostController.renderPostFrom(id ?= "")
+GET     /blog/post/:id/edit                 controllers.PostController.renderPostFrom(id)
+GET     /blog/post/:id                      controllers.PostController.renderPost(id)
+POST    /blog/post                          controllers.PostController.createPost
+PUT     /blog/post/:id                      controllers.PostController.updatePost(id)
+DELETE  /blog/post/:id                      controllers.PostController.deletePost(id)
 
 # AUTH
 GET      /login                             controllers.AuthController.renderLoginForm

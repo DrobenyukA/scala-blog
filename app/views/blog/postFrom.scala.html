@@ -1,0 +1,44 @@
+@()(implicit request: RequestHeader)
+
+@base(s"-> Posts -> Create post", request) {
+    @defining(play.core.PlayVersion.current) { version =>
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col">
+                    <h1 class="text-center">Create post</h1>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+
+                    <form method="post" action="@routes.PostController.createPost">
+                        <div class="form-group">
+                            <label for="post-title">Title</label>
+                            <input type="text" class="form-control" id="post-title" name="title" aria-describedby="titleHelp"/>
+                            <small id="titleHelp" class="form-text text-muted">Enter title.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="post-description">Description</label>
+                            <input type="text" class="form-control" id="post-description" name="description" aria-describedby="descriptionHelp"/>
+                            <small id="descriptionHelp" class="form-text text-muted">Enter post description.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="post-body">Body</label>
+                            <textarea class="form-control" id="post-body" name="body" rows="10"></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    }
+}

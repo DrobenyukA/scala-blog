@@ -1,0 +1,30 @@
+@()(implicit request: RequestHeader)
+
+@base("-> Login", request) {
+    @defining(play.core.PlayVersion.current) { version =>
+      <div class="register">
+          <form class="form-signup" method="post" action="@routes.AuthController.register">
+              @helper.CSRF.formField
+              <div class="form-group">
+                  <label for="username-field">User name</label>
+                  <input type="text" class="form-control" id="username-field" name="username"/>
+              </div>
+              <div class="form-group">
+                  <label for="email-field">Email address</label>
+                  <input type="email" class="form-control" id="email-field" name="login"/>
+              </div>
+              <div class="form-group">
+                  <label for="password-field">Password</label>
+                  <input type="password" class="form-control" id="password-field" name="password"/>
+              </div>
+              <div class="form-group">
+                  <label for="password-field">Confirm password</label>
+                  <input type="password" class="form-control" id="password-field" name="confirmPassword"/>
+              </div>
+              <div class="text-center">
+                  <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+              </div>
+          </form>
+      </div>
+    }
+}

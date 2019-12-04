@@ -18,23 +18,24 @@
 
         <header id="top">
             <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-                <a class="navbar-brand" href="@routes.HomeController.index">Scala Blog</a>
+                <a class="navbar-brand" href="@routes.HomeController.renderHomePage">Scala Blog</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            @partials.navItem("Home", request.uri, routes.HomeController.index.toString())
+                            @partials.navItem("Home", request.uri, routes.HomeController.renderHomePage.toString())
                         </li>
                         <li class="nav-item">
-                            @partials.navItem("Blog", request.uri, routes.BlogController.index.toString())
+                            @partials.navItem("Blog", request.uri, routes.PostController.renderBlog.toString())
                         </li>
                     </ul>
                     @*
                         TODO: render users data if user has logged in
                     *@
-                    <a class="btn btn-outline-success my-2 my-sm-0" href="@routes.AuthController.login">Login</a>
+                    <a class="btn btn-outline-success my-2 my-sm-0" href="@routes.AuthController.renderLoginForm">Login</a>
+                    <a class="btn btn-outline-success my-2 my-sm-0" href="@routes.PostController.renderPostFrom("")">Create post</a>
                 </div>
             </nav>
         </header>

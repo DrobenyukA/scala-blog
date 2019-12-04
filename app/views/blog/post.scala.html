@@ -1,13 +1,13 @@
-@(post: String)(implicit request: RequestHeader)
+@(post: PostModel)(implicit request: RequestHeader)
 
-@base(s"-> Posts -> ${post}", request) {
+@base(s"-> Posts -> ${post.title}", request) {
     @defining(play.core.PlayVersion.current) { version =>
 
         <div class="container">
 
             <div class="row">
                 <div class="col">
-                    <h1 class="text-center">@post</h1>
+                    <h1 class="text-center">@post.title</h1>
                 </div>
             </div>
 
@@ -19,14 +19,9 @@
 
             <div class="row">
                 <div class="col">
-                    <h2>@post <span class="text-muted">subtitle</span></h2>
-                    <p>
-                        Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
-                    </p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur cum delectus dignissimos distinctio doloribus eveniet harum laudantium pariatur praesentium sapiente.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur cum delectus dignissimos distinctio doloribus eveniet harum laudantium pariatur praesentium sapiente.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur cum delectus dignissimos distinctio doloribus eveniet harum laudantium pariatur praesentium sapiente.</p>
-                    <a href="@routes.BlogController.index">Back to blog</a>
+                    <h2>@post.description <span class="text-muted">subtitle</span></h2>
+
+                    <a href="@routes.PostController.renderBlog">Back to blog</a>
                 </div>
             </div>
 
